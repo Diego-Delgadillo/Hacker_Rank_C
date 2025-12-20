@@ -9,38 +9,36 @@ int main()
     int a, b;
     scanf("%d\n%d", &a, &b);
 
+
+    if(a)
   	//para el caso donde se analiza "a"
-  	for(int i = 0; i<9;i++){
-        if(i == 1 && (a == 1 || b ==1)){printf("\n%sone");}
-        if(i == 2 && (a == 2 || b ==2)){printf("\n%stwo");}
-        if(i == 3 && (a == 3 || b ==3)){printf("\n%sthree");}
-        if(i == 4 && (a == 4 || b ==4)){printf("\n%sfour");}
-        if(i == 5 && (a == 5 || b ==5)){printf("\n%sfive");}
-        if(i == 6 && (a == 6 || b ==6)){printf("\n%ssix");}
-        if(i == 7 && (a == 7 || b ==7)){printf("\n%sseven");}
-        if(i == 8 && (a == 8 || b ==8)){printf("\n%seight");}
-        if(i == 9 && (a == 9 || b ==9)){printf("\n%snine");}
-    }
+      for(int i = a; i<=b;i++){
+        if(i == 1){printf("one\n");}
+        if(i == 2){printf("two\n");}
+        if(i == 3){printf("three\n");}
+        if(i == 4){printf("four\n");}
+        if(i == 5){printf("five\n");}
+        if(i == 6){printf("six\n");}
+        if(i == 7){printf("seven\n");}
+        if(i == 8){printf("eight\n");}
+        if(i == 9){printf("nine\n");}
+      }
 
-    //caso donde sale del intervalo
-    if(a > 9 || b > 9){
-        printf("\n%snine");
-    }
-    //determina si es par o impar
-    if(a%2 == 0){
-        printf("\n%seven");
-    }
-    else{
-        pritnf("\n%sodd")
-    }
 
-    if(b%2 == 0){
-        printf("\n%seven");
-    }
-    else{
-        pritnf("\n%sodd")
-    }
+    //bucle que determina si es par o impar en el caso de que el número se salga del intervalo
+    if(b > 9){
+        for(int i = 10; i <= b;i++){
 
+            if(i % 2 == 0){
+                printf("even\n");
+            }
+            else{
+                printf("odd\n");
+            }/*
+            //probamos con operador ternario
+            i % 2 == 0 ? printf("even\n") : printf("odd\n");*/
+        }
+    }
 
     return 0;
 }
