@@ -19,28 +19,30 @@ void calculate_the_maximum(int n, int k) {
     printf("\n%d ^ %d -> %d",n,k,e);*/
 
     //declaramos variables que encontrarán los maximos
-    int maxAnd = -1,maxOr = -1, maxXor = -1, i = 0,j = 0;
+    int maxAnd = 0,maxOr = 0, maxXor = 0, i = 0,j = 0;
 
   //hallamos el máximo de estas operaciones dado el conjunto de 2<= n <= 10^3
-    for(i = 1; i<=k;i++){
+    for(i = 1; i<=n;i++){
         //implementamos algoritmo para iterar en el conjunto n
-        //printf("\n",i);
         for(j = 1;j<=n;j++){
+            int andVal = i & j;
+            int orVal = i| j;
+            int xorVal = i ^ j;
             if(i == j){
                 continue;//salta ese ciclo
             }
             else{
                 //calcula el maxAnd
-                if(((i&j) > maxAnd) && (i&j < k)){maxAnd = i&j;}
-                if(((i|j) > maxOr) && (i|j < k)){maxOr = i|j;printf("\nK=%d %d | %d -> %d",k,i,j,i|j);}
-                if(((i^j) > maxXor) && (i^j < k)){maxXor = i^j;printf("\nK=%d %d ^ %d -> %d",k,i,j,i^j);}
+                if(andVal < k && andVal > maxAnd){maxAnd = andVal;}
+                if(orVal < k && orVal > maxOr){maxOr = orVal;}
+                if(xorVal < k && xorVal > maxXor){maxXor = xorVal;}
             }
         }
     }
     //imprime valor mas alto encontrado
-    printf("\nEl valor maximo de la operacion '&'es -> %d",maxAnd);
-    printf("\nEl valor maximo de la operacion '|'es -> %d",maxOr);
-    printf("\nEl valor maximo de la operacion '^'es -> %d",maxXor);
+    printf("%d",maxAnd);
+    printf("\n%d",maxOr);
+    printf("\n%d",maxXor);
 
 
 }
