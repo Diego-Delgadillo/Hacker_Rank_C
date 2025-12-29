@@ -12,36 +12,28 @@ int marks_summation(int* marks, int number_of_students, char gender) {
     return 0;
   }
   else{
-      int elemento = 0;
-      int ultimoElemento = marks[number_of_students-1];
-      int suma = 0;
+    int elemento = 0, suma = 0;
 
-      //analiza si es girl (g) or boy (b)
-      if(gender == 'b'){
-        suma = marks[0];
-        for(int i = 1; i <= number_of_students; i+2){
-            elemento = marks[i];
-            suma += elemento;
+    if(gender == 'g'){
+        for(int i = 0; i< number_of_students;i++){
+            //printf("\n%d",marks[i]);
+            if(i % 2 != 0){
+                suma += marks[i];
+            }
+        }
+    return suma;
+    }
+
+    else{
+        for(int i = 0; i<= number_of_students;i++){
+            //printf("\n%d",marks[i]);
+            if(i % 2 == 0){
+                suma += marks[i];
+            }
         }
         return suma;
-      }
-
-      else if(gender == 'g'){
-        suma = marks[0];
-        for(int i = 0; i <= number_of_students; i+2){
-            elemento = marks[i];
-            suma += elemento;
-        }
-        return suma;
-      }
+    }
   }
-
-  /*
-  //usamos el método abreviado o un poco más reducido con operador ternario
-  int primerElemento = marks[0];
-  int ultimoElemento = marks[number_of_students-1];
-  return number_of_students <= 1 ? 0 : primerElemento + ultimoElemento;*/
-    return 0;
 }
 
 int main() {
